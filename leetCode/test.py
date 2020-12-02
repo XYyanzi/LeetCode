@@ -35,3 +35,8 @@ class TestSearchRange:
         target = 8
         result = solution.searchRange(nums, target)
         assert result == [4, 7]
+
+    def test_list(self):
+        # 列表翻转
+        l = [1, 2, 3]
+        l2 = l[::-1]

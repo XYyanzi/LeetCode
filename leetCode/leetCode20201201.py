@@ -74,7 +74,7 @@ class Solution(object):
             return [-1, -1]
         else:
             mid_index = self.binarySearch(nums, target)
-            if nums[mid_index - 1] == target:
+            if nums[mid_index - 1] == target and nums[mid_index + 1] != target:
                 print("此时target左边的元素是{},需要重新从左边的列表{}中继续查找".format(nums[mid_index - 1], nums[0:mid_index]))
                 left_index = mid_index - 1
                 while left_index > 0:
@@ -83,7 +83,7 @@ class Solution(object):
                     else:
                         break
                 return [left_index, mid_index]
-            elif nums[mid_index + 1] == target:
+            elif nums[mid_index + 1] == target and nums[mid_index - 1] != target:
                 print("此时target右边的元素是{},需要重新从右边的列表{}中继续查找".format(nums[mid_index + 1], nums[mid_index + 1:len(nums)]))
                 right_index = mid_index + 1
                 while right_index < len(nums):
@@ -93,13 +93,15 @@ class Solution(object):
                     else:
                         break
                 return [mid_index, right_index]
+            elif nums[mid_index - 1] == target and nums[mid_index + 1] == target:
+                # TODO 当左右两边都相等时，需要两边同时查找
+                return [-1, -1]
             else:
                 return [-1, -1]
-            # TODO 当左右两边都相等时，需要两边同时查找
 
 
 if __name__ == '__main__':
-    nums = [5, 7, 7, 7, 8, 8, 8, 8, 10]
+    nums = [5, 7, 7, 8, 8, 8, 8, 8, 10]
     target = 8
     s = Solution()
     result = s.searchRange(nums, target)
