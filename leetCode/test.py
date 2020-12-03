@@ -40,3 +40,19 @@ class TestSearchRange:
         # 列表翻转
         l = [1, 2, 3]
         l2 = l[::-1]
+        l3 = str(l)
+
+    def test_type(self):
+        x = "3"
+        if type(x) != int:
+            print("x不是数字")
+        else:
+            print("x是数字")
+
+    def test_sum(self):
+        print(121 % 10)
+        print(123 / 10)
+        # 遍历列表
+        l = [1, 3, 4, 5]
+        for i in l:
+            print(i)

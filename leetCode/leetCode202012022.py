@@ -28,13 +28,14 @@ class Solution(object):
         else:
             reversed_x = int(list_x[0][::-1])
         print("此时x是".format(reversed_x))
-        print("判断的区间是({},{})".format((-2) ** 31,(2 ** 31 - 1)))
+        print("判断的区间是({},{})".format((-2) ** 31, (2 ** 31 - 1)))
         if (-2) ** 31 < reversed_x < 2 ** 31 - 1:
             return reversed_x
         else:
             return 0
 
+
 if __name__ == '__main__':
-   s = Solution()
-   result = s.reverse(1534236469)
-   print(result)
+    s = Solution()
+    result = s.reverse(1534236469)
+    print(result)
