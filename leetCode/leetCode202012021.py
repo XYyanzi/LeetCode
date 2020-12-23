@@ -34,6 +34,9 @@ class Solution(object):
                     index_list.append(i)
                     index_list.append(j)
                     return (index_list)
+                else:
+                    print("不存在这样的两个数，下边置为-1")
+                    return [-1, -1]
 
 
 if __name__ == '__main__':
