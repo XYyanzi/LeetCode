@@ -2,7 +2,7 @@ import json
 from datetime import datetime, time, timedelta
 
 import pytest
-from leetCode.leetCode20201201 import Solution
+from leetCode.leetCode_00 import Solution
 import locale
 
 solution = Solution()
@@ -89,7 +89,7 @@ class TestSearchRange:
         # print(int(apply_expiration_timestamp * 1000))
         due_date = '2021-01-12' + '23:59:59'
         f = datetime.strptime(due_date, "%Y-%m-%d%H:%M:%S")
-        f_time = int(datetime.combine(f, time.max).timestamp()*1000)
+        f_time = int(datetime.combine(f, time.max).timestamp() * 1000)
         print(f_time)
 
     def test_money_format(self):
@@ -122,3 +122,27 @@ class TestSearchRange:
         s = m * n
         print("{} * {} = {}".format(m, n, s))
         assert s == expect
+
+    def test_dict_2(self):
+        max_amount = 25000
+        deduction_map = {
+            "platformCouponAmount": 30000
+        }
+        deduction_sum = sum(deduction_map.values())
+        gap = deduction_sum - max_amount
+        c = 0
+        for i in deduction_map.keys():
+            if i != list(deduction_map.keys())[-1]:
+                print("此时i不是最后一个key，计算第1个key调整后的值")
+                c = deduction_map[i] - round((gap * deduction_map[i] / deduction_sum))
+                deduction_map[i] = c
+            else:
+                deduction_map[i] = max_amount - c
+        print(deduction_map)
+
+    def test_li(self):
+        rule_list = [{'id': 227, 'template_id': 'T5FE968097509A50001B66934', 'fact': 'platformCoupon', 'out_name': 'platformCouponAmount', 'calculate_on': 'orderAmount', 'discount_amount': None, 'discount_percentage': float('35.00'), 'max_discount_amount': float('300000.00'), 'sequence': 1, 'deleted': 0, 'create_timestamp': 1609132041655, 'update_timestamp': 1609132041655}, {'id': 228, 'template_id': 'T5FE968097509A50001B66934', 'fact': 'merchantCoupon', 'out_name': 'merchantCouponAmount', 'calculate_on': 'orderAmount', 'discount_amount': None, 'discount_percentage': float('25.00'), 'max_discount_amount': float('300000.00'), 'sequence': 2, 'deleted': 0, 'create_timestamp': 1609132041655, 'update_timestamp': 1609132041655}]
+        a = [int(i['discount_percentage']) for i in rule_list]
+        print(sum(a))
+
+

@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 @Author: xunyan
 @Time: 2020/12/1 12:46 下午
-@File: leetCode20201201.py
+@File: leetCode_00.py
 '''
 """
 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置（第一次出现的位置）和结束位置（第二次出现的位置）。
